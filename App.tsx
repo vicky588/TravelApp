@@ -28,7 +28,7 @@ import {
 const App = () =>{
 return (
  <View style={{backgroundColor:'red',width:'90%',height:'90%',margin:10}}>
-<Text>Hello</Text>
+<Text>Hello########</Text>
  </View>
 
 )
