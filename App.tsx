@@ -7,6 +7,8 @@
 
 import React from 'react';
 import type {PropsWithChildren} from 'react';
+import { assets } from './react-native.config';
+import { fonts} from './src/constants';
 import {
   SafeAreaView,
   ScrollView,
@@ -27,10 +29,22 @@ import {
 
 const App = () =>{
 return (
- <View style={{backgroundColor:'red',width:'90%',height:'90%',margin:10}}>
-<Text>Hello########</Text>
+ <View style={{width:'90%',height:'90%',margin:10,alignItems:'center',justifyContent:'center'}}>
+<Text style={Styles.container}>Hi Vickys</Text>
  </View>
 
 )
 }
+
+const Styles=StyleSheet.create({
+  container:{
+    fontFamily:fonts.manropeMedium,
+   // fontFamily:fonts.manropeSemiBold,
+    //fontFamily:fonts.manropeBold,
+    //fontFamily:fonts.manropeRegular,
+    //fontFamily:fonts.manropeExtraLight,
+    //fontFamily:fonts.manropeBold,
+    fontSize:30
+  }
+})
 export default App;
