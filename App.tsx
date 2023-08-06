@@ -7,30 +7,19 @@
 
 import React from 'react';
 import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const App = () =>{
-return (
- <View style={{backgroundColor:'red',width:'90%',height:'90%',margin:10}}>
-<Text>Hello</Text>
- </View>
-
-)
+import { assets } from './react-native.config';
+import { fonts} from './src/constants';
+import MyStack from './src/navigationScreen/stackNavigation';
+ import {NavigationContainer} from "@react-navigation/native"
+import OnBoardScreen from './src/screen/onBoardScreen';
+import RegisterScreen from './src/Screen/registerScreen';
+const App=()=>{
+  return(
+  <NavigationContainer>
+    <MyStack></MyStack>
+  </NavigationContainer>
+  )
 }
+
+
 export default App;
