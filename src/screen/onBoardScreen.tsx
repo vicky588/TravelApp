@@ -1,9 +1,12 @@
 import React from "react";
-import { View,Text, StyleSheet,ImageBackground } from "react-native";
+import { View,Text, StyleSheet,ImageBackground, TouchableOpacity } from "react-native";
 import { Image } from "react-native";
 import { Images ,} from "../constants";
 import { fonts } from "../constants";
-const OnBoardScreen=()=>{
+import {useNavigation} from "@react-navigation/native"
+import RegisterScreen from "./registerScreen";
+const OnBoardScreen=({Navigation})=>{
+    const navigation=useNavigation()
     return(
     <View
     style={{
@@ -12,9 +15,15 @@ const OnBoardScreen=()=>{
         alignItems:'center'
       // backgroundColor:'red'
     }}
+    > 
+    <TouchableOpacity style={Style.LoginViewStyle}
+       onPress={()=>{
+        navigation.navigate('registerScreen')
+       }}
     >
-       
-         <View style={{marginTop:101,
+        <Text style={Style.loginTextStyle}>Login</Text> 
+        </TouchableOpacity>
+         <View style={{marginTop:50,
            justifyContent:'center',
            alignItems:'center',
           //backgroundColor:'yellow'
@@ -30,14 +39,14 @@ const OnBoardScreen=()=>{
             <View style={{
                 width:260,
                 height:72,
-                marginTop:50,
+                marginTop:25,
            justifyContent:'center',
            alignItems:'center',
          // backgroundColor:'pink'
         }}>
             <Text style={Style.textStyle}>Start Your Traveling Journey Safely & Fun</Text>
         </View>
-        <View style={{width:250,height:80,marginTop:10,justifyContent:'center',alignItems:'center',}}>
+        <View style={{width:250,height:80,marginTop:5,justifyContent:'center',alignItems:'center',}}>
           <Text style={Style.secondTextStyle}
           numberOfLines={3}
           >
@@ -109,6 +118,19 @@ const Style=StyleSheet.create({
       marginLeft:98 ,
       position:'absolute',
       resizeMode:'contain'
+    },
+    LoginViewStyle:{
+        alignItems:'center',
+         justifyContent:"center",
+        backgroundColor:'white',
+        borderRadius:10,
+        width:65,
+        height:40,
+        alignSelf:'flex-end',
+        margin:10
+    },
+    loginTextStyle:{
+        fontFamily:fonts.manropeSemiBold
     }
 })
 export default OnBoardScreen;
