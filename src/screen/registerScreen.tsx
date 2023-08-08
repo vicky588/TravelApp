@@ -5,6 +5,7 @@ import{useNavigation} from "@react-navigation/native"
 import { Images,fonts } from "../constants";
 import { TextInput } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import LoginScreen from "./loginScreen";
 const RegisterScreen=({navigation})=>{
     return(
 <View style={{width:'100%',height:'100%',}}>
@@ -31,10 +32,20 @@ const RegisterScreen=({navigation})=>{
                  <TextInput style={Style.TextInputStyle1}placeholder="Your Email"></TextInput>
                  <TextInput style={Style.TextInputStyle1}placeholder="Password"secureTextEntry={true}></TextInput>
                 </View>
-                 <TouchableOpacity style={Style.RegisterButtonStyle}>
+                 <TouchableOpacity style={Style.RegisterButtonStyle}
+                 onPress={()=>{
+                    navigation.navigate('loginScreen')
+                   }}
+                 >
                     <Text style={Style.registerTextStyle}>Register</Text>
                  </TouchableOpacity>
-                
+                <View style={Style.TermandPriviacyScreenStyle}>
+                    <Text style={Style.privacyTextStyle}>
+                    By clicking Register, you are agree to our 
+                    regulation of Terms and privacy
+                    </Text>
+                </View>
+               
               </View>
                  )
               }
@@ -46,7 +57,7 @@ const RegisterScreen=({navigation})=>{
         justifyContent:'center',
        alignItems:'center',
        marginLeft:30,
-       marginTop:40
+       marginTop:50
     },
     HeadingTextStyle:{
         fontFamily:fonts.poppin600,
@@ -107,6 +118,23 @@ const RegisterScreen=({navigation})=>{
         fontFamily:fonts.poppin600,
         fontSize:14,
         lineHeight:22
-    }
+    },
+    TermandPriviacyScreenStyle:{
+        width:280,
+        height:44,
+         alignSelf:'center',
+      marginTop:120,
+        //backgroundColor:'red',
+         marginLeft:20
+          
+    },
+    privacyTextStyle:{
+        fontFamily:fonts.poppin600,
+        fontSize:12,
+        lineHeight:22,
+        color:"#8E8E93"
+    },
+   
+
 })
 export default RegisterScreen;
