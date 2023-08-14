@@ -5,6 +5,8 @@ import { Images,fonts,} from "../constants";
 import { TextInput } from "react-native";
 import { FaceBook } from "../assets/image";
 import { GoogleIcon } from "../assets/image/svg";
+import VerificationScreen from "./verificationScreen";
+import { NavigationContainer } from "@react-navigation/native";
 
 const LoginScreen=({navigation})=>{
 return(
@@ -37,7 +39,13 @@ return(
                
                 </TouchableOpacity>
 
-                <TouchableOpacity style={Style.loginButtonStyle}>
+                <TouchableOpacity style={Style.loginButtonStyle}
+                
+                onPress={()=>{
+                    navigation.navigate('verificationScreen')
+                }}
+                
+                >
                    
                  
            

@@ -4,6 +4,7 @@ import { Image } from "react-native";
 import { Images ,} from "../constants";
 import { fonts } from "../constants";
 import {useNavigation} from "@react-navigation/native"
+import { CategoryList } from "../component";
 import RegisterScreen from "./registerScreen";
 const OnBoardScreen=({Navigation})=>{
     const navigation=useNavigation()
