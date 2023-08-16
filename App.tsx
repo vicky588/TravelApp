@@ -13,10 +13,11 @@ import MyStack from './src/navigationScreen/stackNavigation';
  import {NavigationContainer} from "@react-navigation/native"
 import OnBoardScreen from './src/screen/onBoardScreen';
 import RegisterScreen from './src/Screen/registerScreen';
+import MyTabs from './src/navigationScreen/botttomNavigation';
 const App=()=>{
   return(
   <NavigationContainer>
-    <MyStack></MyStack>
+   <MyTabs></MyTabs>
   </NavigationContainer>
   )
 }

@@ -7,11 +7,14 @@ import VerificationScreen from "../Screen/verificationScreen";
 import ChooseFavoriteScreen from "../Screen/ chooseFavoriteScreen";
 import HomeScreen from "../Screen/homeScreen";
 import { NavigationContainer } from "@react-navigation/native";
+import { BellIcon ,Home,Search,Profile} from "../assets/image/svg";
 const stack = createStackNavigator();
 const MyStack=()=>{
     return(
         
-        <stack.Navigator screenOptions={{headerShown:false}}>
+        <stack.Navigator screenOptions={{headerShown:false}}
+        initialRouteName="homeScreen"
+        >
         <stack.Screen name="onBoardScreen" component={OnBoardScreen}/>
         <stack.Screen name="registerScreen" component={RegisterScreen}/>
         <stack.Screen name="loginScreen" component={LoginScreen}/>

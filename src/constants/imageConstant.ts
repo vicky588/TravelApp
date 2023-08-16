@@ -3,7 +3,8 @@ const Images={
     slideIcon: require('../assets/image/SlideIcon.png'),
     girlLogo: require('../assets/image/GirlLogo.png'),
     circleLogo: require('../assets/image/CircleLogo.png'),
-   travelImage: require('../assets/image/TravelImage.png')
+   travelImage: require('../assets/image/TravelImage.png'),
+   womann2: require('../assets/image/Woman2.png'),
 }
 
 export {Images}
