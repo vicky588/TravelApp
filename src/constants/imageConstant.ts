@@ -5,6 +5,10 @@ const Images={
     circleLogo: require('../assets/image/CircleLogo.png'),
    travelImage: require('../assets/image/TravelImage.png'),
    womann2: require('../assets/image/Woman2.png'),
+   explore1 : require('../assets/image/Explore.png'),
+   sailing :require('../assets/image/SailingImage.png'),
+   kayaKIng:require('../assets/image/KayaKingImage.png'),
+   cottage : require('../assets/image/CottageImage.png'),
 }
 
 export {Images}

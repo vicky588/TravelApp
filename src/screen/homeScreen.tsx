@@ -16,7 +16,7 @@ const chooseLocation=['All Filter','National Park','Cruise Travel','Local Travel
 const ImageData=[
 {
     Image:Images.travelImage,
-    headind:'Name of Destination',
+    heading:'Name of Destination',
     Discription:'Outline project comonent link content stroke group.Flatten community library',
     price: 'start from $5 / day'
     
@@ -24,7 +24,7 @@ const ImageData=[
 },
 {
     Image:Images.travelImage,
-    headind:'Name of Destination',
+    heading:'Name of Destination',
     Discription:'Outline project comonent link content stroke group.Flatten community library',
     price: 'start from $8 / day'
     
@@ -32,7 +32,7 @@ const ImageData=[
 },
 {
     Image:Images.travelImage,
-    headind:'Name of Destination',
+    heading:'Name of Destination',
     Discription:'Outline project comonent link content stroke group.Flatten community library',
     price: 'start from $12 / day'
     
@@ -40,7 +40,7 @@ const ImageData=[
 },
 {
     Image:Images.travelImage,
-    headind:'Name of Destination',
+    heading:'Name of Destination',
     Discription:'Outline project comonent link content stroke group.Flatten community library',
     price: 'start from $9 / day'
     
@@ -66,7 +66,7 @@ return (
        <View style={{borderRadius:100,width:60,height:60,borderWidth:1,alignItems:'center',justifyContent:'center'}}>
        
        <Image
-       style={{width:48,height:48,borderRadius:40}}
+       style={{width:48,height:48,borderRadius:40,position:'absolute'}}
        source={Images.womann2}
        />
    

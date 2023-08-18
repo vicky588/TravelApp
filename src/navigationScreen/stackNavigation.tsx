@@ -7,7 +7,7 @@ import VerificationScreen from "../Screen/verificationScreen";
 import ChooseFavoriteScreen from "../Screen/ chooseFavoriteScreen";
 import HomeScreen from "../Screen/homeScreen";
 import { NavigationContainer } from "@react-navigation/native";
-import { BellIcon ,Home,Search,Profile} from "../assets/image/svg";
+
 const stack = createStackNavigator();
 const MyStack=()=>{
     return(
