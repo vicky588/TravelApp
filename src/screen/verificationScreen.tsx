@@ -8,6 +8,7 @@ import { GoogleIcon } from "../assets/image/svg";
 import OTPInputView from "@twotalltotems/react-native-otp-input";
 import { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
+import { wp,hp,fp, Theme } from "../utils";
 import{useNavigation} from "@react-navigation/native"
 const VerificationScreen=({navigation})=>{
     const [otp,setOtp]=useState()
@@ -136,8 +137,8 @@ return(
 
       },
       otpInputStyle1:{
-        width:56,
-        height:56,
+        width:Theme.horizontalSpacing.space56,
+        height:Theme.verticalSpacing.space56,
         borderRadius:8,
         borderWidth:1,
         //color:' #222222',

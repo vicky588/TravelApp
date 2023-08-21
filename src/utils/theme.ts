@@ -1,9 +1,13 @@
-import { fp, wp, hp } from './responsiveUi';
+import { wp,hp,fp } from "./responsiveui";
 const Theme = {
   borderRadius: {
-    small: 6,
-    medium: 8,
-    large: 16,
+    smal6l: 6,
+    medium8: 8,
+    large16: 16,
+    image100:100,
+    extraLarge40:40,
+    large24:24,
+    borderWidth1:1
   },
 
   horizontalSpacing: {
@@ -35,6 +39,21 @@ const Theme = {
     space108: wp(108),
     space124: wp(124),
     space189: wp(189),
+    space350:wp(350),
+    space360:wp(360),
+     space175:wp(175),
+     space300:wp(300),
+     space400:wp(400),
+     space230:wp(230),
+     space414:wp(414),
+     space290:wp(290),
+     space330:wp(330),
+     space153:wp(153),
+     space16: wp(16),
+     space36: wp(36),
+     space180: wp(180),
+     space30: wp(30),
+     space56: wp(56),
   },
 
   verticalSpacing: {
@@ -59,11 +78,24 @@ const Theme = {
     space34: hp(34),
     space35: hp(35),
     space40: hp(40),
+    space42: hp(42),
     space50: hp(50),
     space88: hp(88),
     space100: hp(100),
     space123: hp(123),
     space160: hp(160),
+    space60: hp(60),
+    space70: hp(70),
+    space74: hp(74),
+    space95: hp(95),
+    space350: hp(350),
+    space324: hp(324),
+    space588: hp(588),
+    space243: hp(243),
+    space570: hp(570),
+    space16: hp(16),
+    space36: hp(36),
+    space56: hp(56),
   },
 
   lightTheme: {
@@ -161,16 +193,16 @@ const Theme = {
   },
 
   fontSize: {
-    caption: fp(10),
-    preHeading: fp(12),
-    paragraph: fp(14),
-    subHeading: fp(16),
-    title: fp(18),
-    headline: fp(20),
-    largeTitle: fp(22),
-    extraLargeTitle: fp(24),
-    subCaption: fp(8),
-    megaTitle: fp(30),
+    caption10: fp(10),
+    preHeading12: fp(12),
+    paragraph14: fp(14),
+    subHeading16: fp(16),
+    title18: fp(18),
+    headline20: fp(20),
+    largeTitle22: fp(22),
+    extraLargeTitle24: fp(24),
+    subCaption8: fp(8),
+    megaTitle30: fp(30),
 
   },
 

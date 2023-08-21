@@ -25,24 +25,77 @@ const ExploreView=[
         heading:'Cottage'
     }
 ]
-
+const SuggestionPlace=[
+{
+    image1:Images.kepulauan,
+    heading1:'Kepulauan Raja Ampat',
+    discription:'Papua Barat'
+},
+{
+    image1:Images.taman,
+    heading1:'Taman Laut Bunaken',
+    discription:'Sulawesi Utara'
+},
+{
+    image1:Images.gunung,
+    heading1:'Gunung Bromo',
+    discription:'jawa Timur'
+},
+{
+    image1:Images.pulau,
+    heading1:'Pulau Komodo',
+    discription:'Nusa Tenggara Timur'
+},
+{
+    image1:Images.tana,
+    heading1:'Tana Toraja',
+    discription:'Papua Barat'
+},
+{
+    image1:Images.om,
+    heading1:'Om Tenggara',
+    discription:'Nusa Tenggara'
+},
+]
 
 
 const renderItem = ({ item }) => {
     console.log('item',item)
     return (
+
       <View style={{ height:95,justifyContent:'center',alignItems:"center",margin:10}}>
         <Image
          source={item.image}
           style={{ width:48, height:47,borderRadius:6,margin:10}}
         />
         
+      
         <Text>{item.heading}</Text>
+       
       </View>
+      
     );
   };
      
-
+const  renderItem2 = ({item}) => {
+    console.log('item',item)
+    return (
+           <View style={{width:340,height:72,borderBottomWidth:0.20,justifyContent:'center',marginLeft:20,borderColor:'#222222',borderRadius:10}}>
+      <View style={{width:223,height:44 ,flexDirection:'row',margin:10}}>
+        <Image
+        style={{width:48,height:40,}}
+         source={item.image1}
+       
+        />
+        
+           <View style={{marginLeft:15}}>
+        <Text style={{fontFamily:fonts.poppinSemiBold,fontSize:13,color:'#222222'}}>{item.heading1}</Text>
+       <Text style={{fontFamily:fonts.poppinsRegular,fontSize:12,color:'#8E8E93'}}>{item.discription}</Text>
+       </View>
+      </View>
+      </View>
+    );
+  };
 
 const Search=()=>{
 
@@ -76,6 +129,17 @@ return(
         </View>
   <View style={{margin:30 }}>
 <Text style={{fontFamily:fonts.poppin600,fontSize:16,color:"#222222"}}>Suggestion Place</Text>
+
+  </View>
+
+  <View style={{height:300,}}>
+  <FlatList
+  data={SuggestionPlace}
+  renderItem={renderItem2}
+  showsVerticalScrollIndicator={false}
+  >
+
+  </FlatList>
 
   </View>
       
