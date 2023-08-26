@@ -2,7 +2,8 @@ import React from "react";
 import { View,Text, StyleSheet, TextInput ,Image, FlatList} from "react-native";
 import { Images,fonts } from "../constants";
 import { CategoryList, HorizontalViewList } from "../component";
-
+import { Theme } from "../utils";
+import{BackButton} from "../component";
 
 
 
@@ -80,17 +81,17 @@ const renderItem = ({ item }) => {
 const  renderItem2 = ({item}) => {
     console.log('item',item)
     return (
-           <View style={{width:340,height:72,borderBottomWidth:0.20,justifyContent:'center',marginLeft:20,borderColor:'#222222',borderRadius:10}}>
-      <View style={{width:223,height:44 ,flexDirection:'row',margin:10}}>
+           <View style={{width:Theme.horizontalSpacing.space330,height:Theme.verticalSpacing.space70,borderBottomWidth:0.20,justifyContent:'center',marginLeft:20,borderColor:'#222222',borderRadius:10}}>
+      <View style={{width:Theme.horizontalSpacing.space230,height:Theme.verticalSpacing.space40 ,flexDirection:'row',margin:Theme.horizontalSpacing.space10}}>
         <Image
-        style={{width:48,height:40,}}
+        style={{width:Theme.horizontalSpacing.space50,height:Theme.verticalSpacing.space40,}}
          source={item.image1}
        
         />
         
            <View style={{marginLeft:15}}>
-        <Text style={{fontFamily:fonts.poppinSemiBold,fontSize:13,color:'#222222'}}>{item.heading1}</Text>
-       <Text style={{fontFamily:fonts.poppinsRegular,fontSize:12,color:'#8E8E93'}}>{item.discription}</Text>
+        <Text style={{fontFamily:fonts.poppinSemiBold,fontSize:Theme.fontSize.paragraph14,color:'#222222'}}>{item.heading1}</Text>
+       <Text style={{fontFamily:fonts.poppinsRegular,fontSize:Theme.fontSize.preHeading12,color:'#8E8E93'}}>{item.discription}</Text>
        </View>
       </View>
       </View>
@@ -101,12 +102,13 @@ const Search=()=>{
 
 return(
     <View style={{flex:1}}>
-        <View style={{width:'100%',height:139,backgroundColor:'#113043',justifyContent:'center',alignItems:'center'}}>
+        
+        <View style={{width:'100%',height:Theme.verticalSpacing.space140,backgroundColor:'#113043',justifyContent:'center',alignItems:'center'}}>
         <Text style={Style.headingStyle}>Choose your Favorite</Text>
            <Text style={Style.textStyle}>Many Interesting Choices For You </Text>
            
            </View>
-           <View style={{width:354,height:58,flexDirection:'row',marginLeft:20,justifyContent:'center'}}>
+           <View style={{width:Theme.horizontalSpacing.space350,height:Theme.verticalSpacing.space56,flexDirection:'row',justifyContent:'center',marginLeft:Theme.horizontalSpacing.space30}}>
              <TextInput style={Style.TextInputStyle} placeholder="Search Your Destination">
              
 

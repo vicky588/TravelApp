@@ -7,6 +7,7 @@ import { FaceBook } from "../assets/image";
 import { GoogleIcon } from "../assets/image/svg";
 import VerificationScreen from "./verificationScreen";
 import { NavigationContainer } from "@react-navigation/native";
+import { Theme } from "../utils";
 
 const LoginScreen=({navigation})=>{
 return(
@@ -18,7 +19,7 @@ return(
             style={Style.imageStyle}
               source={Images.logo}
             />
-             <View style={{width:300,height:40,marginLeft:30,marginTop:35,}}>
+             <View style={{width:Theme.horizontalSpacing.space300,height:Theme.verticalSpacing.space40,marginLeft:Theme.horizontalSpacing.space30,marginTop:Theme.verticalSpacing.space15}}>
             <Text style={Style.HeadingTextStyle}>Welcome Travelling</Text>
             
             </View>  
@@ -33,12 +34,13 @@ return(
                  <TextInput style={Style.TextInputStyle1}placeholder="Your Email"></TextInput>
                  <TextInput style={Style.TextInputStyle1}placeholder="Password"secureTextEntry={true}></TextInput>
                 </View>
-                <TouchableOpacity style={{width:350,height:35,alignItems:'flex-end',justifyContent:'center',marginLeft:20,}}>
+                <TouchableOpacity style={{width:Theme.horizontalSpacing.space350,height:Theme.verticalSpacing.space35,alignItems:'flex-end',justifyContent:'center',marginLeft:Theme.horizontalSpacing.space20,}}>
                
                      <Text style={{textDecorationLine:'underline'}}>Forget Password?</Text>
                
                 </TouchableOpacity>
 
+                  <View style={{alignItems:'center'}}>
                 <TouchableOpacity style={Style.loginButtonStyle}
                 
                 onPress={()=>{
@@ -51,19 +53,21 @@ return(
            
             <Text style={Style.loginTextStyle}>Login</Text>
         </TouchableOpacity>
-
-         <View style={{width:354,height:20,flexDirection:'row',marginLeft:20,justifyContent:'center',alignItems:'center'}}>
-         <View style={{width:161,height:2,backgroundColor:'#222222'}}></View>
+        </View>
+         <View style={{width:Theme.horizontalSpacing.space354,height:Theme.verticalSpacing.space20,flexDirection:'row',justifyContent:'center',alignItems:'center',margin:Theme.horizontalSpacing.space20}}>
+         <View style={{width:161,height:1,backgroundColor:'#222222'}}></View>
             <Text style={{marginLeft:4,marginRight:4}}>OR</Text>
             <View style={{width:161,height:2,backgroundColor:'#222222'}}></View>
         </View>
+
         <View style={Style.googleLoginStyle}>
-        <TouchableOpacity style={{width:354,height:56,borderRadius:8,borderWidth:1,flexDirection:'row',marginTop:13,alignItems:'center',justifyContent:'center'}}>
-                <GoogleIcon color="black" size={25}></GoogleIcon>
+
+        <TouchableOpacity style={{width:Theme.horizontalSpacing.space354,height:Theme.verticalSpacing.space56,borderRadius:Theme.borderRadius.medium8,borderWidth:1,flexDirection:'row',marginTop:Theme.verticalSpacing.space15,alignItems:'center',justifyContent:'center'}}>
+                <GoogleIcon color="black" size={20}></GoogleIcon>
                 <Text style={Style.GoogleLoginView}>Login With Google</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{width:354,height:56,borderRadius:8,borderWidth:1,flexDirection:'row',marginTop:13,alignItems:'center',justifyContent:'center'}}>
-                <FaceBook color="black" size={25}></FaceBook>
+            <TouchableOpacity style={{width:Theme.horizontalSpacing.space354,height:Theme.verticalSpacing.space56,borderRadius:Theme.borderRadius.medium8,borderWidth:1,flexDirection:'row',marginTop:Theme.verticalSpacing.space15,alignItems:'center',justifyContent:'center'}}>
+                <FaceBook color="black" size={20}></FaceBook>
                 <Text style={Style.GoogleLoginView}>Login With Facebook</Text>
             </TouchableOpacity>
             
@@ -74,13 +78,13 @@ return(
 }
 const Style=StyleSheet.create({
     imageStyle:{
-   width:92,
-   height:21,
-   padding:8,
+   width:Theme.horizontalSpacing.space90,
+   height:Theme.verticalSpacing.space21,
+   //padding:8,
    justifyContent:'center',
   alignItems:'center',
-  marginLeft:30,
-  marginTop:45,
+  marginLeft:Theme.horizontalSpacing.space30,
+  marginTop:Theme.verticalSpacing.space20,
   //backgroundColor:"red"
 },
 HeadingTextStyle:{
@@ -111,56 +115,61 @@ loginViewStyle:{
     alignSelf:'center',
     justifyContent:'center',
    // backgroundColor:"pink",
+    alignItems:'center'
    
    
   },
 
 TextInputStyle:{
-    width:354,
-    height:56,
-    borderRadius:8,
+    width:Theme.horizontalSpacing.space354,
+    height:Theme.verticalSpacing.space60,
+    borderRadius:Theme.borderRadius.medium8,
     borderWidth:1,
     Colors:'#222222',
     
   },
   TextInputStyle1:{
-  width:354,
-  height:56,
-  borderRadius:8,
+  width:Theme.horizontalSpacing.space354,
+  height:Theme.verticalSpacing.space60,
+  borderRadius:Theme.borderRadius.medium8,
   borderWidth:1,
   Colors:'#222222',
-  marginTop:15,
+  marginTop:Theme.verticalSpacing.space15,
 
 },
 loginButtonStyle:{
-    width:354,
-    height:56,
-    margin:20,
-    borderRadius:8,
+    width:Theme.horizontalSpacing.space354,
+    height:Theme.verticalSpacing.space56,
+    
+    borderRadius:Theme.borderRadius.medium8,
     backgroundColor:'#85D3FF',
     alignItems:'center',
     justifyContent:'center',
-       marginTop:15,
+       marginTop:Theme.verticalSpacing.space15,
        
 },
 loginTextStyle:{
     color:'#FFFFFF',
-    width:59,
-    height:22,
+    width:Theme.horizontalSpacing.space60,
+    height:Theme.verticalSpacing.space24,
     fontFamily:fonts.poppin600,
-    fontSize:14,
+    fontSize:Theme.fontSize.subHeading16,
     lineHeight:22
 },
 googleLoginStyle:{
-    width:354,
-    height:128,
+    width:Theme.horizontalSpacing.space400,
+    height:Theme.verticalSpacing.space140,
    // backgroundColor:'red',
-    marginLeft:20,
-    marginTop:20
+   // marginLeft:Theme.horizontalSpacing.space20,
+    marginTop:Theme.verticalSpacing.space20,
+    alignItems:'center',
+    justifyContent:'center',
+ 
+    margin:Theme.horizontalSpacing.space10
 },
 GoogleLoginView:{
     fontFamily:fonts.poppinsRegular,
-    marginLeft:20
+    marginLeft:Theme.horizontalSpacing.space20,
 }
 
 

@@ -3,6 +3,9 @@ import { View,Text,ImageBackground, StyleSheet,TouchableOpacity ,Image,FlatList}
 import { Images, fonts } from "../constants";
 import { Theme } from "../utils";
 import Icon from 'react-native-vector-icons/AntDesign'
+import { useNavigation } from "@react-navigation/native";
+import AboutScreen from "./listDestination";
+
 
 const Profile=[
     {
@@ -69,7 +72,7 @@ const  renderItem2 = ({item}) => {
 
 
 
-const ProfileScreen=()=>{
+const ProfileScreen=({navigation})=>{
 return(
     <View style={{flex:1,}}>
       <ImageBackground
@@ -88,7 +91,13 @@ return(
             <Text style={{alignSelf:'center',fontSize:Theme.fontSize.preHeading12,fontFamily:fonts.poppinsRegular}}>Edit Photo</Text>
           
           </TouchableOpacity>
-          <TouchableOpacity style={{width:Theme.horizontalSpacing.space153,height:Theme.verticalSpacing.space42,borderWidth:Theme.borderRadius.borderWidth1,borderRadius:Theme.borderRadius.large24,borderColor:Theme.lightTheme.lightGrey,alignItems:'baseline',justifyContent:'center',marginLeft:Theme.horizontalSpacing.space10}}>
+          <TouchableOpacity style={{width:Theme.horizontalSpacing.space153,height:Theme.verticalSpacing.space42,borderWidth:Theme.borderRadius.borderWidth1,borderRadius:Theme.borderRadius.large24,borderColor:Theme.lightTheme.lightGrey,alignItems:'baseline',justifyContent:'center',marginLeft:Theme.horizontalSpacing.space10}}
+            onPress={()=>{
+                navigation.navigate('aboutScreen')
+            }}
+          
+          >
+         
           <Text style={{alignSelf:'center',fontSize:Theme.fontSize.preHeading12,fontFamily:fonts.poppinsRegular}}>Verification</Text>
          
           </TouchableOpacity>

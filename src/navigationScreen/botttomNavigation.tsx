@@ -14,7 +14,7 @@ function MyTabs() {
     
     >
     
-      <Tab.Screen name="Home" component={MyStack} 
+      <Tab.Screen name="Home" component={HomeScreen} 
    options={{
     tabBarIcon: ({ color, size }) => (
        <HomeIcon color={color}/>

@@ -69,7 +69,7 @@ return (
 
       <View style={{width:'350',height:Theme.verticalSpacing.space50,flexDirection:'row',justifyContent:'flex-end',marginRight:Theme.horizontalSpacing.space40}}>
       
-       <View style={{borderRadius:Theme.borderRadius.image100,width:Theme.horizontalSpacing.space60,height:Theme.verticalSpacing.space70,borderWidth:1,alignItems:'center',justifyContent:'center'}}>
+       <View style={{borderRadius:Theme.borderRadius.image100,width:Theme.horizontalSpacing.space60,height:Theme.verticalSpacing.space70,alignItems:'center',justifyContent:'center'}}>
        
        <Image
        style={{width:Theme.horizontalSpacing.space50,height:Theme.verticalSpacing.space60,borderRadius:Theme.borderRadius.extraLarge40}}
@@ -80,7 +80,7 @@ return (
        </View>
       </View>
 
-      <View style={{width:Theme.horizontalSpacing.space230,height:Theme.verticalSpacing.space88,marginLeft:Theme.horizontalSpacing.space24}}>
+      <View style={{width:Theme.horizontalSpacing.space230,height:72,marginLeft:Theme.horizontalSpacing.space24}}>
         <Text style={{fontFamily:fonts.poppin600,fontSize:Theme.fontSize.extraLargeTitle24,color:'#222222'}}>Wherever You Go, It's Beautiful Place</Text>
       </View>
 
@@ -88,7 +88,7 @@ return (
         <HorizontalViewList data={chooseLocation}></HorizontalViewList>
        </TouchableOpacity>
 
-      <View style={{width:'100%',height:'55%',margin:Theme.horizontalSpacing.space15,justifyContent:'center',alignItems:'center'}}>
+      <View style={{width:'100%',height:'55%',margin:Theme.horizontalSpacing.space20,justifyContent:'center',alignItems:'center'}}>
        <HorizontalViewList data={ImageData}
        isforFilter={false}
        ></HorizontalViewList>

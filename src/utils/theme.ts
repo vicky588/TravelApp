@@ -7,7 +7,8 @@ const Theme = {
     image100:100,
     extraLarge40:40,
     large24:24,
-    borderWidth1:1
+    borderWidth1:1,
+    radius30:30
   },
 
   horizontalSpacing: {
@@ -54,6 +55,8 @@ const Theme = {
      space180: wp(180),
      space30: wp(30),
      space56: wp(56),
+     space354: wp(354),
+     space241: wp(241),
   },
 
   verticalSpacing: {
@@ -96,6 +99,12 @@ const Theme = {
     space16: hp(16),
     space36: hp(36),
     space56: hp(56),
+    space140: hp(140),
+    space354: hp(354),
+    space117: hp(117),
+    space240: hp(240),
+    space430: hp(430),
+
   },
 
   lightTheme: {

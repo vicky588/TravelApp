@@ -22,6 +22,11 @@ const Images={
    LanguageVectorIcon: require('../assets/image/Language.png'),
    PrivacyVectorIcon: require('../assets/image/Privacy.png'),
   advanceSetting: require('../assets/image/Advance.png'),
+  rajaAmpat: require('../assets/image/RajaAmpat.png'),
+  sungai: require('../assets/image/Sungai.png'),
+  danau: require('../assets/image/Danau.png'),
+  air: require('../assets/image/Air.png'),
+  rajaAmpatProfile: require('../assets/image/RajaAmpatProfile.png'),
 }
 
 export {Images}

@@ -8,37 +8,127 @@ import { GoogleIcon } from "../assets/image/svg";
 import VerificationScreen from "./verificationScreen";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
  import { useNavigation } from "@react-navigation/native"; 
-const Category=['Museum & Instituation','National Park','Camping Park','Greece Travel','Disneyland Resort',
-'Electric Vechile','Rock Climbing','cruise Travel','Travelling Biogger'
-
-]
-const NationalCountry=['Canada Travel','China Travel','South Korea','Las Vegas travel','Indonesia Culture']
+ import { Theme } from "../utils";
+ import { useState } from "react";
 
 
-const renderItem=({item})=>{
+let CategoryInitial=[
+    {
+        title:'Museum & Instituation',
+        isSelected:false,
+
+},
+   {
     
-   return (
-    <TouchableOpacity>
-    <View style={{
-        height:50,
-        //backgroundColor:'red',
-        margin:10,
-        paddingHorizontal:10,
-        borderRadius:30,
-        justifyContent:'center',
-        borderWidth:1,
-        borderColor:'black',
-        alignItems:'center'
+    title:'National Park',
+    isSelected:false,
 
-    }}>
-        <Text style={{fontFamily:fonts.poppinsRegular,fontSize:14,color:'#222222',textAlign:'center'}}>{item}</Text>
-    </View>
-    </TouchableOpacity>
-   )
+},
+
+  { title: 'Camping Park',
+     isSelected:false
+},
+
+  { title: 'Greece Travel',
+     isSelected:false
+
+
+},
+
+   { title:'Disneyland Resort',
+      isSelected:false
+
+},
+  {  title:'Electric Vechile',
+      isSelected:false
+
+},
+
+
+  { title:'Rock Climbing',
+    isSelected:false
+
+
+},
+
+   { title:'cruise Travel',
+     isSelected:false
+
+},
+
+{    title:'Travelling Biogger',
+   isSelected:false
+
 }
 
-const ChooseFavoriteScreen=({navigation})=>{
+]
+const NationalCountry=[
     
+   { 
+    title:'Canada Travel',
+    isSelected:false
+
+},
+    { title:'China Travel',
+    isSelected:false
+},
+    { title:'South Korea',
+    isSelected:false
+},
+   { title:'Las Vegas travel',
+   isSelected:false
+},
+   { title:'Indonesia Culture',
+   isSelected:false
+
+
+}
+   
+   ]
+
+ 
+
+
+
+
+const ChooseFavoriteScreen=({navigation})=>{
+    const[Category,setCategory] =useState(CategoryInitial)
+
+      const [selectCountry,setselectCountry]=useState(NationalCountry)
+    const MultiSelect=(item)=>{
+   
+        console.log('multiselect', item)
+   
+        const updatedCategories = Category.map(item1 => {
+           if (item1.title === item.title) {
+             return { ...item1, isSelected: !item1.isSelected };
+           }
+           return item1;
+         });
+     console.log('updatedCategories',updatedCategories)
+       setCategory(updatedCategories)
+   
+     }
+
+     const singleSelect=(item)=>{
+     
+        const updatedCountry = selectCountry.map(item2 => {
+            
+            if (item2.title === item.title) {
+              return { ...item2,isSelected :! item2.isSelected}
+            } 
+            return {
+                ...item2, isSelected:false,
+            };
+
+          });
+          
+      console.log('updatedCategories',updatedCountry)
+      setselectCountry(updatedCountry)
+   
+     }
+     console.log('country@@',selectCountry)
+
     return(
         
    
@@ -47,7 +137,7 @@ const ChooseFavoriteScreen=({navigation})=>{
   <View style={{width:'100%',height:'100%'}}>
   <BackButton onPress={()=>{navigation.goBack()}}></BackButton>
 
-  <View style={{width:300,height:88,marginTop:83,marginLeft:30}}>
+  <View style={{width:Theme.horizontalSpacing.space300,height:Theme.verticalSpacing.space88,marginTop:Theme.verticalSpacing.space20,marginLeft:Theme.horizontalSpacing.space30,}}>
   <Text style={Style.headingStyle}>Choose Your Favorite</Text>
    <Text style={Style.discriptionStyle} numberOfLines={3}>I'll chose 6 favorite topics that became
     references for my future destination or vacation.
@@ -59,12 +149,14 @@ const ChooseFavoriteScreen=({navigation})=>{
  <CategoryList 
  data={Category}
  title="Category"
+ onPress={MultiSelect}
  />
 
 <CategoryList 
- data={NationalCountry}
+ data={selectCountry}
  title="National country"
  numColumn={3}
+ onPress={singleSelect}
  />
 
 <TouchableOpacity style={Style.RegisterButtonStyle}
@@ -74,8 +166,12 @@ onPress={()=>{
 >
  <Text style={Style.registerTextStyle}>Choose Favorite</Text>
  </TouchableOpacity>
- <TouchableOpacity style={{alignItems:"center",justifyContent:'center',margin:30}}>
-    <Text style={{textDecorationLine:'underline',fontFamily:fonts.manropeMedium,color:'8E8E93',fontSize:14}}>Skip for now</Text>
+ <TouchableOpacity style={{alignItems:"center",justifyContent:'center',margin:Theme.horizontalSpacing.space30}}
+ onPress={()=>{
+    navigation.navigate('listDestination')
+ }}
+ >
+    <Text style={{textDecorationLine:'underline',fontFamily:fonts.manropeMedium,color:'8E8E93',fontSize:Theme.fontSize.paragraph14}}>Skip for now</Text>
  </TouchableOpacity>
   </View>
 
@@ -90,13 +186,13 @@ onPress={()=>{
 const Style=StyleSheet.create({
     headingStyle:{
         fontFamily:fonts.poppin600,
-        fontSize:24,
+        fontSize:Theme.fontSize.extraLargeTitle24,
         letterSpacing:0.2,
         color:'#222222'
     },
     discriptionStyle:{
         fontFamily:fonts.poppinsRegular,
-        fontSize:14,
+        fontSize:Theme.fontSize.paragraph14,
         color:'#8E8E93',
         
     },
@@ -105,21 +201,21 @@ const Style=StyleSheet.create({
         alignItems:"center"
     },
     RegisterButtonStyle:{
-        width:354,
-        height:56,
-        borderRadius:8,
+        width:Theme.horizontalSpacing.space350,
+        height:Theme.verticalSpacing.space56,
+        borderRadius:Theme.borderRadius.medium8,
         alignItems:'center',
         justifyContent:'center',
         backgroundColor:  '#85D3FF',
         alignSelf:'center',
-        marginVertical:40,
+        marginVertical:Theme.verticalSpacing.space40,
      
            
     },
     registerTextStyle:{
         color:'#FFFFFF',
         fontFamily:fonts.poppin600,
-        fontSize:18,
+        fontSize:Theme.fontSize.subHeading16,
         lineHeight:22
     },
 })

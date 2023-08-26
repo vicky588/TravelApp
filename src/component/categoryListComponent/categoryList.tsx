@@ -4,14 +4,21 @@ import { Images,fonts,} from "../../constants";
 import { TextInput } from "react-native";
 
 import { FlatList } from "react-native-gesture-handler";
+import { Colors } from "react-native/Libraries/NewAppScreen";
   
-const renderItem=({item})=>{
-    
+const RenderItem=({item, onPress})=>{
+    console.log('item', item)
    return (
-    <TouchableOpacity>
+    <TouchableOpacity
+    onPress={()=>{
+        console.log('item',item);
+        onPress(item)
+
+    }}
+    >
     <View style={{
         height:50,
-        //backgroundColor:'red',
+        backgroundColor:item.isSelected?'#213555':'white',
         margin:10,
         paddingHorizontal:10,
         borderRadius:30,
@@ -19,15 +26,18 @@ const renderItem=({item})=>{
         borderWidth:0.40,
         borderColor:'black',
         alignItems:'center'
+          
+    }}
 
-    }}>
-        <Text style={{fontFamily:fonts.poppinsRegular,fontSize:14,color:'#222222',textAlign:'center'}}>{item}</Text>
+    >
+        <Text style={[{ color: item.isSelected ? 'white' : 'black' }]}
+        >{item.title}</Text>
     </View>
     </TouchableOpacity>
    )
 }
 
-const CategoryList=({data=[], numColumn=2,title=''})=>{
+const CategoryList=({data=[], numColumn=2,title='',onPress})=>{
     console.log('data',data)
     return(
         <>
@@ -43,7 +53,8 @@ maxHeight:200,
 }}>
   <FlatList
  data={data}
-  renderItem={renderItem}
+  renderItem={({item})=>
+  <RenderItem item={item} onPress={onPress}></RenderItem>}
 numColumns={2}
   horizontal={false}
   showsVerticalScrollIndicator={false}

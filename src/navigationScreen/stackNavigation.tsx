@@ -7,21 +7,24 @@ import VerificationScreen from "../Screen/verificationScreen";
 import ChooseFavoriteScreen from "../Screen/ chooseFavoriteScreen";
 import HomeScreen from "../Screen/homeScreen";
 import { NavigationContainer } from "@react-navigation/native";
-
+import ListDestination from "../Screen/listDestination";
+import MyTabs from "./botttomNavigation";
+import DetailsDestination from "../Screen/detailsDestination";
 const stack = createStackNavigator();
 const MyStack=()=>{
     return(
         
         <stack.Navigator screenOptions={{headerShown:false}}
-        initialRouteName="homeScreen"
+       
         >
         <stack.Screen name="onBoardScreen" component={OnBoardScreen}/>
         <stack.Screen name="registerScreen" component={RegisterScreen}/>
         <stack.Screen name="loginScreen" component={LoginScreen}/>
         <stack.Screen name="verificationScreen" component={VerificationScreen}/>
         <stack.Screen name="chooseFavoriteScreen" component={ChooseFavoriteScreen}/>
-        <stack.Screen name="homeScreen" component={HomeScreen}/>
-
+        <stack.Screen name="homeScreen" component={MyTabs}/>
+        <stack.Screen name="listDestination" component={ListDestination}/>
+        <stack.Screen name="detailsDestination" component={DetailsDestination}/>
         </stack.Navigator>
       
     )

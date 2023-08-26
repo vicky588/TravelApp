@@ -8,7 +8,7 @@ import SearchIcon from "./searchIcon";
 import BellIcon from "./bellIcon";
 import Profile from "./profileIcon";
 import OnlineLogo from "./onlineLogo";
-
+import MessageIcon from "./messageIcon";
 export {FaceBook,
     GoogleIcon,GoogleLoction,
     LoveLogo,
@@ -18,5 +18,5 @@ export {FaceBook,
     BellIcon,
     Profile,
     OnlineLogo,
-   
+    MessageIcon
 }

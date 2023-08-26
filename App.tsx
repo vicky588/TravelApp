@@ -14,12 +14,12 @@ import MyStack from './src/navigationScreen/stackNavigation';
 import OnBoardScreen from './src/screen/onBoardScreen';
 import RegisterScreen from './src/Screen/registerScreen';
 import MyTabs from './src/navigationScreen/botttomNavigation';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
 const App=()=>{
   return(
    
   <NavigationContainer>
-   <MyTabs></MyTabs>
+<MyStack></MyStack>
   </NavigationContainer>
  
   )
