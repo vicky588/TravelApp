@@ -7,6 +7,7 @@ const fonts={
     poppin600:'Poppins-SemiBold',//600,
     poppinsBold:'Poppins-Bold',//700,
     poppinsRegular:'Poppins-Regular',//400
+    poppinSemiBold :'Poppins-SemiBold',//500
 }
 
 

@@ -3,8 +3,8 @@ import { Dimensions, PixelRatio } from 'react-native';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-const baseWidth = 390;
-const baseHeight = 844;
+const baseWidth = 414;
+const baseHeight = 896;
 
 const widthToDp = (widthPercentage:any) => {
   const widthValue =

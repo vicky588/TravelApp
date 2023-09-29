@@ -4,7 +4,9 @@ import { Image } from "react-native";
 import { Images ,} from "../constants";
 import { fonts } from "../constants";
 import {useNavigation} from "@react-navigation/native"
+import { CategoryList } from "../component";
 import RegisterScreen from "./registerScreen";
+import { Theme } from "../utils";
 const OnBoardScreen=({Navigation})=>{
     const navigation=useNavigation()
     return(
@@ -23,7 +25,7 @@ const OnBoardScreen=({Navigation})=>{
     >
         <Text style={Style.loginTextStyle}>Login</Text> 
         </TouchableOpacity>
-         <View style={{marginTop:50,
+         <View style={{marginTop:Theme.verticalSpacing.space40,
            justifyContent:'center',
            alignItems:'center',
           //backgroundColor:'yellow'
@@ -37,16 +39,16 @@ const OnBoardScreen=({Navigation})=>{
             </View>
 
             <View style={{
-                width:260,
-                height:72,
-                marginTop:25,
+                width:Theme.horizontalSpacing.space290,
+                height:Theme.verticalSpacing.space74,
+               // marginTop:25,
            justifyContent:'center',
            alignItems:'center',
          // backgroundColor:'pink'
         }}>
             <Text style={Style.textStyle}>Start Your Traveling Journey Safely & Fun</Text>
         </View>
-        <View style={{width:250,height:80,marginTop:5,justifyContent:'center',alignItems:'center',}}>
+        <View style={{width:Theme.horizontalSpacing.space290,height:Theme.verticalSpacing.space100,marginTop:Theme.verticalSpacing.space10,justifyContent:'center',alignItems:'center',}}>
           <Text style={Style.secondTextStyle}
           numberOfLines={3}
           >
@@ -56,14 +58,14 @@ const OnBoardScreen=({Navigation})=>{
           </Text>
         </View>
 
-        <View style={{width:50,height:10,marginTop:50,}}>
+        <View style={{width:Theme.horizontalSpacing.space50,height:Theme.verticalSpacing.space10,marginTop:Theme.verticalSpacing.space50,}}>
           <Image
           style={Style.ImageIconStyle}
           source={Images.slideIcon}
           />
 
         </View>
-        <View style={{width:400,height:350,}}>
+        <View style={{width:Theme.horizontalSpacing.space414,height:Theme.verticalSpacing.space350,}}>
         
          <ImageBackground
          style={Style.ImageBackgroundStyle}
@@ -108,13 +110,13 @@ const Style=StyleSheet.create({
        
     },
     ImageBackgroundStyle:{
-        width:400,
-        height:296,
-       marginTop:150
+        width:Theme.horizontalSpacing.space414,
+        height:Theme.verticalSpacing.space350,
+       marginTop:Theme.verticalSpacing.space160
     },
     girlsImageStyle:{
       width:184.75,
-      height:441,
+      height:Theme.verticalSpacing.space570,
       marginLeft:98 ,
       position:'absolute',
       resizeMode:'contain'
@@ -123,11 +125,12 @@ const Style=StyleSheet.create({
         alignItems:'center',
          justifyContent:"center",
         backgroundColor:'white',
-        borderRadius:10,
-        width:65,
-        height:40,
+        borderRadius:Theme.borderRadius.medium8,
+        width:Theme.horizontalSpacing.space80,
+        height:Theme.verticalSpacing.space50,
         alignSelf:'flex-end',
-        margin:10
+        margin:Theme.horizontalSpacing.space15,
+        marginTop:Theme.verticalSpacing.space20
     },
     loginTextStyle:{
         fontFamily:fonts.manropeSemiBold
