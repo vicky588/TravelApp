@@ -1,6 +1,7 @@
 import React from "react";
 import { View,Text,TouchableOpacity,StyleSheet,Image, Modal, ImageBase} from "react-native";
 import { BackButton, 
+    CategoryList, 
     HorizontalViewList } from "../component";
 import { Images,fonts,} from "../constants";
 import { TextInput } from "react-native";
@@ -13,7 +14,32 @@ import{OnlineLogo}from "../assets/image/svg";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Theme } from "../utils";
-const chooseLocation=['All Filter','National Park','Cruise Travel','Local Travel']
+import { ScrollView } from "react-native-gesture-handler";
+import { Svg,Path } from "react-native-svg";
+
+
+
+const chooseLocation=[
+  {
+  title:'All Filter',
+    isSelected:false
+  },
+  {
+   title:'National Park',
+  isSelected:false
+  },
+  {
+  title:'Cruise Travel',
+  isSelected:true
+  },
+  {
+   title:'Local Travel',
+  isSelected:false
+  }
+]
+
+
+
 const ImageData=[
 {
     Image:Images.travelImage,
@@ -49,18 +75,71 @@ const ImageData=[
 },
 ]
 
+
+
 const Bottom=createBottomTabNavigator()
 
 const HomeScreen=({navigation})=>{
 
-return (
-    <View style={Style.mainViewStyle}>
-       <Text>
-      
+  const [selectLocation,setSelectLocation]=useState(chooseLocation)
   
-     
-      </Text>
-        <BackButton onPress={()=>{navigation.goBack()}}></BackButton>
+console.log('select location',selectLocation)
+  
+  const RenderItem1=(location)=>{
+   
+  return(
+    <TouchableOpacity
+    onPress={()=>{singleSelect(location)}}
+    >
+    <View style={{width:Theme.horizontalSpacing.space124,
+      height:Theme.verticalSpacing.space50,borderWidth:1,
+      alignItems:'center',margin:8,borderRadius:20,
+      justifyContent:'center',
+      backgroundColor:location.isSelected?'#213555':'white',}}
+      >
+      <Text style={{color:location.isSelected?'white':'black'}}>{location.title}</Text>
+  
+    </View>
+    </TouchableOpacity>
+  )
+  }
+ 
+ 
+  const singleSelect=(location)=>{
+   
+ const singleLocation = selectLocation.map(item2 => {
+
+        if (item2.title === location.title) {
+          return { ...item2,isSelected :! item2.isSelected}
+        } 
+        return {
+            ...item2, isSelected:false,
+        };
+  
+      });
+      
+       setSelectLocation(singleLocation)
+    }
+  
+  
+return (
+  <ScrollView>
+    <View style={Style.mainViewStyle}>
+    <TouchableOpacity
+   onPress={()=>(
+    navigation.goBack()
+   
+
+   )}
+   style={{marginTop:Theme.verticalSpacing.space17}}
+   >
+   <Svg style={{width:Theme.horizontalSpacing.space50,height:Theme.verticalSpacing.space50}}>
+        <Path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+      </Svg>
+   
+   </TouchableOpacity>
+
+       
         <View style={{flexDirection:'row',margin:Theme.horizontalSpacing.space15,width:Theme.horizontalSpacing.space100,height:Theme.verticalSpacing.space30,alignItems:'center',}}>
       <GoogleLoction color={'black'}></GoogleLoction>
 
@@ -83,10 +162,17 @@ return (
       <View style={{width:Theme.horizontalSpacing.space230,height:72,marginLeft:Theme.horizontalSpacing.space24}}>
         <Text style={{fontFamily:fonts.poppin600,fontSize:Theme.fontSize.extraLargeTitle24,color:'#222222'}}>Wherever You Go, It's Beautiful Place</Text>
       </View>
-
-       <TouchableOpacity style={{marginLeft:Theme.horizontalSpacing.space15}}>
-        <HorizontalViewList data={chooseLocation}></HorizontalViewList>
-       </TouchableOpacity>
+          
+          <FlatList
+          style={{width:'100%',height:50}}
+          data={selectLocation}
+          renderItem={({item})=>RenderItem1(item)}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          >
+            </FlatList> 
+     
+      
 
       <View style={{width:'100%',height:'55%',margin:Theme.horizontalSpacing.space20,justifyContent:'center',alignItems:'center'}}>
        <HorizontalViewList data={ImageData}
@@ -96,6 +182,7 @@ return (
     
 
     </View>
+    </ScrollView>
 )
 }
 const Style=StyleSheet.create({

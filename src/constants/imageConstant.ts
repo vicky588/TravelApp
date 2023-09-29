@@ -27,6 +27,10 @@ const Images={
   danau: require('../assets/image/Danau.png'),
   air: require('../assets/image/Air.png'),
   rajaAmpatProfile: require('../assets/image/RajaAmpatProfile.png'),
+  image2 :require('../assets/image/Image2.png'),
+  image3 :require('../assets/image/Image3.png'),
+  image4 :require('../assets/image/image4.png'),
+  image5 :require('../assets/image/image5.png'),
 }
 
 export {Images}

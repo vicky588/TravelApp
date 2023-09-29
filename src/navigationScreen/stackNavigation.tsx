@@ -10,6 +10,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import ListDestination from "../Screen/listDestination";
 import MyTabs from "./botttomNavigation";
 import DetailsDestination from "../Screen/detailsDestination";
+import ChooseDate from "../Screen/chooseDate";
+import PaymentScreen from "../Screen/paymentScreen";
 const stack = createStackNavigator();
 const MyStack=()=>{
     return(
@@ -25,6 +27,9 @@ const MyStack=()=>{
         <stack.Screen name="homeScreen" component={MyTabs}/>
         <stack.Screen name="listDestination" component={ListDestination}/>
         <stack.Screen name="detailsDestination" component={DetailsDestination}/>
+        <stack.Screen name="chooseDate" component={ChooseDate}/>
+        <stack.Screen name="paymentScreen" component={PaymentScreen}/>
+
         </stack.Navigator>
       
     )

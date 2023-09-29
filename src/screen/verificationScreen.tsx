@@ -10,14 +10,44 @@ import { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { wp,hp,fp, Theme } from "../utils";
 import{useNavigation} from "@react-navigation/native"
+import { Formik } from "formik";
+import Svg, { Path } from 'react-native-svg';
 const VerificationScreen=({navigation})=>{
     const [otp,setOtp]=useState()
-    const handleOtpChange=(code)=>{
-        setOtp(code)
+   
+    const handleOtpChange=(newOtp)=>{
+        setOtp(newOtp)
+        console.log('newOtp',newOtp)
     }
-    const ref = useRef();
+    const handleKeyPress = ({ nativeEvent }) => {
+        if (nativeEvent.key === 'Backspace') {
+          // Handle delete key press
+          setOtp(otp.slice(0, -1)); // Remove the last character
+        }
+      };
+      const handleFormSubmit = () => {
+      
+        console.log('Entered OTP:', otp);
+      };
 return(
+    
     <View style={Style.MainViewStyle}>
+       <View style={{width:'100%',height:Theme.verticalSpacing.space15,}}>
+       <TouchableOpacity
+   onPress={()=>(
+    navigation.goBack()
+   
+
+   )}
+   style={{marginTop:Theme.verticalSpacing.space17}}
+   >
+   <Svg style={{width:Theme.horizontalSpacing.space50,height:Theme.verticalSpacing.space50}}>
+        <Path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+      </Svg>
+   
+   </TouchableOpacity>
+
+       </View>
        <View style={{width:300,height:96,marginTop:119,justifyContent:'center',alignItems:'center'}}>
            <Text style={Style.vericationTextStyle}>Verification account</Text>
            <View style={{flexDirection:'row',}}>
@@ -37,7 +67,7 @@ return(
        onCodeChanged={handleOtpChange}
        autoFocusOnLoad
        codeInputFieldStyle={{borderRadius:8,fontSize:22,color:'black',width:56,height:56,borderWidth:1,fontFamily:fonts.poppin600,borderColor:'black'}}
-       
+     
        />
        </View>
        <TouchableOpacity style={Style.verification}
@@ -51,7 +81,9 @@ return(
          </TouchableOpacity>
          <View style={Style.reSendScreen}>
          <Text style={Style.reSendScreenTExt}>I dont't have code?</Text>
-         <TouchableOpacity>
+         <TouchableOpacity
+         onPress={handleFormSubmit}
+         >
          <Text style={Style.reSendScreenTExt2}>Resend Code</Text>
          </TouchableOpacity>
          </View>

@@ -5,13 +5,14 @@ import { TextInput } from "react-native";
 
 import { FlatList } from "react-native-gesture-handler";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import { Theme } from "../../utils";
   
 const RenderItem=({item, onPress})=>{
-    console.log('item', item)
+
    return (
     <TouchableOpacity
     onPress={()=>{
-        console.log('item',item);
+
         onPress(item)
 
     }}
@@ -41,15 +42,16 @@ const CategoryList=({data=[], numColumn=2,title='',onPress})=>{
     console.log('data',data)
     return(
         <>
-        <View style={{width:200,height:30,marginLeft:30,marginTop:50}}>
+        <View style={{width:Theme.horizontalSpacing.space230,height:Theme.verticalSpacing.space30,marginLeft:Theme.horizontalSpacing.space30,marginTop:Theme.verticalSpacing.space50}}>
     
-        <Text style={{fontFamily:fonts.poppin600,fontSize:18,lineHeight:27,color:'#222222'}}>{title}</Text>
+        <Text style={{fontFamily:fonts.poppin600,fontSize:Theme.fontSize.headline20,color:'#222222'}}>{title}</Text>
      
        </View>
-    <View style={{width:'100%',marginTop:25,
-justifyContent:"space-around",
-alignItems:'center',
-maxHeight:200,
+    <View style={{width:'100%',marginTop:20,
+     justifyContent:"space-around",
+     alignItems:'center',
+     maxHeight:150,
+     //backgroundColor:'yellow'
 }}>
   <FlatList
  data={data}
@@ -70,7 +72,7 @@ numColumns={2}
 const Style=StyleSheet.create({
     headingStyle:{
         fontFamily:fonts.poppin600,
-        fontSize:24,
+        fontSize:20,
         letterSpacing:0.2,
         color:'#222222'
     },

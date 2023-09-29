@@ -14,13 +14,19 @@ import MyStack from './src/navigationScreen/stackNavigation';
 import OnBoardScreen from './src/screen/onBoardScreen';
 import RegisterScreen from './src/Screen/registerScreen';
 import MyTabs from './src/navigationScreen/botttomNavigation';
+import { Provider } from 'react-redux';
+//import  store  from './store';
+
+
 
 const App=()=>{
+  
   return(
-   
+  //  <Provider store={store}>
   <NavigationContainer>
 <MyStack></MyStack>
   </NavigationContainer>
+  //  </Provider>
  
   )
 }

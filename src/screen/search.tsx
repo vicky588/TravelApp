@@ -4,6 +4,7 @@ import { Images,fonts } from "../constants";
 import { CategoryList, HorizontalViewList } from "../component";
 import { Theme } from "../utils";
 import{BackButton} from "../component";
+import { ScrollView } from "react-native-gesture-handler";
 
 
 
@@ -101,6 +102,7 @@ const  renderItem2 = ({item}) => {
 const Search=()=>{
 
 return(
+  <ScrollView>
     <View style={{flex:1}}>
         
         <View style={{width:'100%',height:Theme.verticalSpacing.space140,backgroundColor:'#113043',justifyContent:'center',alignItems:'center'}}>
@@ -146,6 +148,7 @@ return(
   </View>
       
     </View>
+    </ScrollView>
 )
 }
 const Style=StyleSheet.create({

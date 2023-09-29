@@ -5,23 +5,26 @@ import { Theme } from "../utils";
 import Icon from 'react-native-vector-icons/AntDesign'
 import { useNavigation } from "@react-navigation/native";
 import AboutScreen from "./listDestination";
-
+import Svg, { Path } from 'react-native-svg';
 
 const Profile=[
     {
         image:Images.profileVc,
         title:'Profile',
-        discription:"Short Description of Menu"
+        discription:"Short Description of Menu",
+        navigateTo:''
     },
     {
         image:Images.paymentVectorIcon,
         title:'Payment & Method',
-        discription:"Short Description of Menu"
+        discription:"Short Description of Menu",
+        navigateTo:''
     },
     {
         image:Images.LanguageVectorIcon,
         title:'Language ',
-        discription:"Short Description of Menu"
+        discription:"Short Description of Menu",
+
     },
     {
         image:Images.PrivacyVectorIcon,
@@ -56,7 +59,9 @@ const  renderItem2 = ({item}) => {
         <Text style={Style.titleText}>{item.title}</Text>
        <Text style={Style.discription}>{item.discription}</Text>
        </View>
-       <TouchableOpacity style={Style.renderItemTouch}>
+       <TouchableOpacity style={Style.renderItemTouch}
+       onPress={()=>NavigationContainer.navigate(item.navigateTo)}
+       >
        <Icon name="caretright" size={15} color="black" />
 
        </TouchableOpacity>
@@ -75,6 +80,19 @@ const  renderItem2 = ({item}) => {
 const ProfileScreen=({navigation})=>{
 return(
     <View style={{flex:1,}}>
+      <TouchableOpacity
+   onPress={()=>(
+    navigation.goBack()
+   
+
+   )}
+   style={{marginTop:Theme.verticalSpacing.space17}}
+   >
+   <Svg style={{width:Theme.horizontalSpacing.space50,height:Theme.verticalSpacing.space50}}>
+        <Path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+      </Svg>
+   
+   </TouchableOpacity>
       <ImageBackground
       style={Style.imageViewStyle}
       source={Images.profileWoman}
@@ -91,12 +109,7 @@ return(
             <Text style={{alignSelf:'center',fontSize:Theme.fontSize.preHeading12,fontFamily:fonts.poppinsRegular}}>Edit Photo</Text>
           
           </TouchableOpacity>
-          <TouchableOpacity style={{width:Theme.horizontalSpacing.space153,height:Theme.verticalSpacing.space42,borderWidth:Theme.borderRadius.borderWidth1,borderRadius:Theme.borderRadius.large24,borderColor:Theme.lightTheme.lightGrey,alignItems:'baseline',justifyContent:'center',marginLeft:Theme.horizontalSpacing.space10}}
-            onPress={()=>{
-                navigation.navigate('aboutScreen')
-            }}
-          
-          >
+          <TouchableOpacity style={{width:Theme.horizontalSpacing.space153,height:Theme.verticalSpacing.space42,borderWidth:Theme.borderRadius.borderWidth1,borderRadius:Theme.borderRadius.large24,borderColor:Theme.lightTheme.lightGrey,alignItems:'baseline',justifyContent:'center',marginLeft:Theme.horizontalSpacing.space10}} >
          
           <Text style={{alignSelf:'center',fontSize:Theme.fontSize.preHeading12,fontFamily:fonts.poppinsRegular}}>Verification</Text>
          

@@ -5,7 +5,7 @@ import { View,Text,Image, TouchableOpacity } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
-
+import { Svg,Path } from "react-native-svg";
 const List=[
     {
         image:Images.rajaAmpat,
@@ -45,6 +45,8 @@ const RenderItem=({item})=>{
 
     return(
         <View style={{width:Theme.horizontalSpacing.space354,height:Theme.verticalSpacing.space117,flexDirection:'row',borderBottomWidth:0.40}}>
+
+
            <View style={{justifyContent:'center'}} >
             <Image
             style={{width:Theme.horizontalSpacing.space90,height:Theme.verticalSpacing.space95,borderRadius:Theme.borderRadius.medium8}}
@@ -73,6 +75,19 @@ let ListDestination=({Navigation})=>{
     
 return (
     <View style={{flex:1}}>
+         <TouchableOpacity
+   onPress={()=>(
+    navigation.goBack()
+   
+
+   )}
+   style={{marginTop:Theme.verticalSpacing.space17}}
+   >
+   <Svg style={{width:Theme.horizontalSpacing.space50,height:Theme.verticalSpacing.space50}}>
+        <Path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+      </Svg>
+   
+   </TouchableOpacity>
         <View style={{margin:Theme.horizontalSpacing.space15,width:Theme.horizontalSpacing.space354,height:Theme.verticalSpacing.space160,marginTop:Theme.verticalSpacing.space60,flexDirection:"row"}}>
    
          <View style={{width:219,height:62}}>

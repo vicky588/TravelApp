@@ -10,7 +10,7 @@ import { FlatList, ScrollView } from "react-native-gesture-handler";
  import { useNavigation } from "@react-navigation/native"; 
  import { Theme } from "../utils";
  import { useState } from "react";
-
+import { Svg,Path } from "react-native-svg";
 
 let CategoryInitial=[
     {
@@ -135,9 +135,21 @@ const ChooseFavoriteScreen=({navigation})=>{
         <ScrollView style={{flex:1}}>
  
   <View style={{width:'100%',height:'100%'}}>
-  <BackButton onPress={()=>{navigation.goBack()}}></BackButton>
+  <TouchableOpacity
+   onPress={()=>(
+    navigation.goBack()
+   
 
-  <View style={{width:Theme.horizontalSpacing.space300,height:Theme.verticalSpacing.space88,marginTop:Theme.verticalSpacing.space20,marginLeft:Theme.horizontalSpacing.space30,}}>
+   )}
+   style={{marginTop:Theme.verticalSpacing.space17}}
+   >
+   <Svg style={{width:Theme.horizontalSpacing.space50,height:Theme.verticalSpacing.space50}}>
+        <Path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+      </Svg>
+   
+   </TouchableOpacity>
+
+  <View style={{width:Theme.horizontalSpacing.space300,height:Theme.verticalSpacing.space88,marginTop:Theme.verticalSpacing.space20,marginLeft:Theme.horizontalSpacing.space30}}>
   <Text style={Style.headingStyle}>Choose Your Favorite</Text>
    <Text style={Style.discriptionStyle} numberOfLines={3}>I'll chose 6 favorite topics that became
     references for my future destination or vacation.
@@ -155,7 +167,7 @@ const ChooseFavoriteScreen=({navigation})=>{
 <CategoryList 
  data={selectCountry}
  title="National country"
- numColumn={3}
+ numColumn={2}
  onPress={singleSelect}
  />
 
@@ -166,12 +178,12 @@ onPress={()=>{
 >
  <Text style={Style.registerTextStyle}>Choose Favorite</Text>
  </TouchableOpacity>
- <TouchableOpacity style={{alignItems:"center",justifyContent:'center',margin:Theme.horizontalSpacing.space30}}
+ <TouchableOpacity style={{alignItems:"center",justifyContent:'center',marginBottom:20}}
  onPress={()=>{
     navigation.navigate('listDestination')
  }}
  >
-    <Text style={{textDecorationLine:'underline',fontFamily:fonts.manropeMedium,color:'8E8E93',fontSize:Theme.fontSize.paragraph14}}>Skip for now</Text>
+    <Text style={{textDecorationLine:'underline',fontFamily:fonts.manropeMedium,color:'8E8E93',fontSize:Theme.fontSize.paragraph14,}}>Skip for now</Text>
  </TouchableOpacity>
   </View>
 
@@ -194,11 +206,13 @@ const Style=StyleSheet.create({
         fontFamily:fonts.poppinsRegular,
         fontSize:Theme.fontSize.paragraph14,
         color:'#8E8E93',
-        
+        marginTop:Theme.verticalSpacing.space20,
+        //backgroundColor:'red'
     },
     FlatListStyle:{
         justifyContent:'center',
-        alignItems:"center"
+        alignItems:"center",
+        //backgroundColor:'yellow'
     },
     RegisterButtonStyle:{
         width:Theme.horizontalSpacing.space350,
@@ -209,7 +223,7 @@ const Style=StyleSheet.create({
         backgroundColor:  '#85D3FF',
         alignSelf:'center',
         marginVertical:Theme.verticalSpacing.space40,
-     
+  
            
     },
     registerTextStyle:{
